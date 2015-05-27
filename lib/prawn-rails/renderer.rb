@@ -5,7 +5,7 @@ module PrawnRails
     def self.call(template)
       %{
         @filename ||= "\#{controller.action_name}.pdf"
-        controller.response.headers['Content-Disposition'] = "download; filename=\\\"\#{@filename}\\\""
+        controller.response.headers['Content-Disposition'] = "attachment; filename=\\\"\#{@filename}\\\""
 
         #{template.source.strip}
       }
